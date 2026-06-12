@@ -1,0 +1,36 @@
+import 'package:admin/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
+import 'package:admin/features/personalization/screens/profile/widgets/image_and_meta.dart';
+import 'package:admin/features/personalization/screens/profile/widgets/profile_form.dart';
+import 'package:admin/utils/constants/sizes.dart';
+import 'package:flutter/material.dart';
+
+class ProfileDesktopScreen extends StatelessWidget {
+  const ProfileDesktopScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(JSizes.defaultSpace),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              JBreadcrumbsWithHeading(heading: 'Profile',
+               breadcrumbItems: ['Profile']),
+               SizedBox(height: JSizes.spaceBtwSections),
+
+               Row(crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                Expanded(child: ImageAndMeta()),
+                SizedBox(width: JSizes.spaceBtwSections),
+                Expanded(flex: 2,child: ProfileForm()),
+               ],
+               ),
+            ],
+          ),
+          ),
+      ),
+    );
+  }
+}
